@@ -1,7 +1,7 @@
 # Telco Customer Churn Prediction using ML algorithms vs Transformer Based Model
 
 ## Project Overview
-This project aims to predict customer churn for a telecommunications company using machine learning techniques. The project implements and compares two different approaches: a traditional machine learning model (Logistic Regression/Random Forest) and a Transformer-based model for tabular data.
+This project aims to predict customer churn for a telecommunications company using machine learning techniques. The project implements and compares two different approaches: a traditional machine learning model (Logistic Regression/Random Forest/SVM/XGboost) and a Transformer-based model for tabular data and finally analyze and evaluate  the best model.
 
 ## Problem Statement
 Customer churn is a critical business metric for telecom companies. Predicting which customers are likely to churn helps companies take proactive measures to retain them. This project uses customer demographics, account information, and service usage data to predict customer churn.
