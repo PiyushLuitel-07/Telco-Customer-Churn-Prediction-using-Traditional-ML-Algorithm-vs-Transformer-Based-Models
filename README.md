@@ -59,21 +59,24 @@ Telco Churn Prediction/
 ## Futher Details
 
 ### Data cleaning
-* Convert 'TotalCharges' column which is of object type to float type using pd.to_numeric() with errors parameter set to 'coerce' to parse invalid data to NaN.
+* Converted 'TotalCharges' column which is of object type to float type using pd.to_numeric() with errors parameter set to 'coerce' to parse invalid data to NaN.
 * 11 missing values were found in the 'TotalCharges' column and were imputed by the mean() value.
 * Data has no duplicates.
 
 ### Exploratory data analysis
 1. Count plot shows the distribution of the churn rate in the data which showed an imbalance in the data.
-![Imbalance Data](images/churn imbalance.png)
+![Imbalance Data](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/churn%20imbalance.png)
 2. Categorical features count plot insights:
     * Data is evenly distributed between the two genders; males and females, which might be useful in further analysis.
     * No information added by 'No Internet Service' or 'No Phone Service' and 'No' categories.
     --> **Replacing 'No Internet Service' and 'No Phone Service' entries with 'No'**.
+    ![]()
 3. Histogram and box plot of continous features implies that:
     * No outliers exists.
     * 'TotalCharges' feature is right skewed.
+    ![]()
 4. Scatter plot of 'MonthlyCharges' vs. 'TotalCharges' shows a positive correlation between both and also it affects the Churn rate positively.
+    ![]()
 
 ### Feature encoding 
 Several encoding techniques were tested on each categorical feature separately and One-Hot encoding all the categorical features gave the best results.
@@ -280,7 +283,7 @@ pip install -r requirements.txt
 
 4. Download the dataset:
 - Visit [Kaggle Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
-- Download and place in `data/raw/` directory
+- Download and place in `data/raw/` directory ( already downloaded )
 
 5. Run the Streamlit app:
 ```bash
