@@ -319,6 +319,7 @@ RandomForestClassifier(
  - **Strong overall accuracy and precision**, especially for class 0 (non-churners).
  - Shows **significant improvement** in recall for churners ( **0.50**).
  - ROC AUC of **0.82** indicates good separation capability.
+ ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/9_roc_transformer.png)
  - Still underperforms in detecting churners compared to Random Forest.
 
 ---
