@@ -1,4 +1,4 @@
-# Telco Customer Churn Prediction
+# Telco Customer Churn Prediction using ML algorithms vs Transformer Based Model
 
 ## Project Overview
 This project aims to predict customer churn for a telecommunications company using machine learning techniques. The project implements and compares two different approaches: a traditional machine learning model (Logistic Regression/Random Forest) and a Transformer-based model for tabular data.
@@ -19,6 +19,7 @@ Telco Churn Prediction/
 ├── app/                     # Streamlit application
 │   └── main.py             # Main Streamlit app
 ├── models/                  # Saved model files
+├── images/                  # image files
 ├── requirements.txt         # Project dependencies
 └── README.md               # Project documentation
 ```
@@ -78,6 +79,20 @@ Telco Churn Prediction/
     ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/4_histogram_boxplot.png)
 4. Scatter plot of 'MonthlyCharges' vs. 'TotalCharges' shows a positive correlation between both and also it affects the Churn rate positively.
     ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/4_scatterplot.png)
+5. Correlation Analysis
+  ![]()
+  - 🔸 **`tenure` vs `TotalCharges`**: Strong correlation (**0.82**) – longer stay → higher total charges.  
+  - 🔸 **`MonthlyCharges` vs `TotalCharges`**: Moderate correlation (**0.65**) – higher monthly charges → higher total charges.  
+  - 🔸 **`tenure` vs `MonthlyCharges`**: Weak correlation (**0.25**) – duration has little effect on monthly charge.
+
+
+6. 📊 Correlation of Numerical Features with `Churn`
+- 🔹 **`tenure`**: Negative correlation (~**-0.35**) – customers with longer tenure are **less likely to churn**.
+- 🔹 **`MonthlyCharges`**: Positive correlation (~**+0.20**) – higher monthly charges are **slightly associated with higher churn**.
+- 🔹 **`TotalCharges`**: Slight negative correlation (~**-0.15**) – customers who paid more overall are **less likely to churn**.
+  ![]()
+
+> ℹ️ Interpretation: Long-term, high-total-paying customers are more loyal. Higher monthly bills may contribute to churn.
 
 ### Feature encoding 
 Several encoding techniques were tested on each categorical feature separately and One-Hot encoding all the categorical features gave the best results.
