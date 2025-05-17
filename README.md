@@ -15,7 +15,7 @@ Telco Churn Prediction/
 ├── data/                      # Data directory
 │   ├── raw/                  # contains Original dataset
 │   └── processed/            # contains Processed datasets
-├── notebooks/                # Jupyter notebooks from data exploration to model building and 
+├── notebooks/                # Jupyter notebooks from data exploration, model building to evaluation  
 ├── app/                     # Streamlit application
 │   └── main.py             # Main Streamlit app
 ├── models/                  # Saved model files
@@ -226,7 +226,7 @@ In churn prediction:
 
 ## 🧑‍💼 Real-Life Example:
 
-Let’s say we ou have 100 churners:
+Let’s say we have 100 churners:
 - **Random Forest** would catch ~72 of them.
 - **Logistic Regression** would catch ~70.
 - Missing even 2–3 churners could result in lost revenue.
@@ -419,6 +419,7 @@ While both models perform well, the **Random Forest** model remains the **prefer
 # **Final Conclusion**:  
  For a churn prediction task, **recall for the positive class (churn)** is most important.  
  **Random Forest** provides a **better trade-off** between recall, interpretability, and real-world utility.
+ So **Random Forest** is the selected model for this usecase.
 
 ### Setup and Installation
 
