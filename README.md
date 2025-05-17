@@ -192,38 +192,53 @@ The data set includes information about:
   - Churn is **very high during the first year**.
   - Very **low churn** beyond 4 years → indicates customer **loyalty increases with tenure**.
 
----
+## Model 1: Random Forest Classifier vs SVM vs Xgboost Classifier vs Logistic Regression
 
-## Model 1: Transformer-Based Model (TabTransformer)
+![]()
 
-###  Architecture Overview
-- Utilizes **self-attention layers** to capture dependencies among categorical features.
-- Categorical features are **embedded** into dense vectors.
-- These embeddings are **processed by Transformer blocks** (multi-head attention + feed-forward layers).
-- Outputs are concatenated with normalized numerical features and passed through an MLP head.
-- Trained using `Binary Cross-Entropy Loss` with the `Adam` optimizer.
+## 📊 Model Performance Summary
 
-### Performance
-| Metric         | Class 0 (No) | Class 1 (Yes) |
-|----------------|-------------|---------------|
-| Precision      | 0.83        | 0.66          |
-| Recall         | 0.91        | 0.50          |
-| F1-Score       | 0.87        | 0.57          |
-
-- **Accuracy**: 0.80  
-- **Macro F1**: 0.72  
-- **Weighted F1**: 0.79  
-- **ROC AUC Score**: 0.8156 ✅
-
-> 🔎 **Observations**:  
-> - **Strong overall accuracy and precision**, especially for class 0 (non-churners).
-> - Shows **significant improvement** in recall for churners ( **0.50**).
-> - ROC AUC of **0.82** indicates good separation capability.
-> - Still underperforms in detecting churners compared to Random Forest.
+| Model                | Accuracy | Precision | Recall   | F1-Score | ROC AUC |
+|---------------------|----------|-----------|----------|----------|---------|
+| **Random Forest**    | 0.7608   | 0.5366    | **0.7246** | 0.6166   | **0.8360** ✅ |
+| XGBoost              | 0.7587   | 0.5340    | 0.7139   | 0.6110   | 0.8337   |
+| Logistic Regression  | **0.7679** | **0.5487** | 0.7086   | **0.6184** | 0.8215   |
+| SVM                  | 0.7601   | 0.5375    | 0.6898   | 0.6042   | 0.8208   |
 
 ---
 
-## Model 2: Random Forest Classifier
+## 🧠 Business Context: Why Recall Matters
+
+In churn prediction:
+- **Recall** is crucial because we want to **identify as many customers who are likely to churn as possible.**
+- **Missing a churner means losing a customer**, which leads to revenue loss.
+
+---
+
+## ✅ Best Model: Random Forest
+
+### Why?
+- **Highest Recall** → Best at detecting customers who are likely to churn (72.46%).
+- **Highest ROC AUC** → Best at overall class separation (83.60%).
+- **Competitive F1-Score** → Balanced performance between precision and recall.
+
+---
+
+## 🧑‍💼 Real-Life Example:
+
+Let’s say we ou have 100 churners:
+- **Random Forest** would catch ~72 of them.
+- **Logistic Regression** would catch ~70.
+- Missing even 2–3 churners could result in lost revenue.
+
+**Random Forest** also provides:
+- **Feature Importance** → Helps explain *why* customers churn.
+- **Robustness** → Less prone to overfitting, especially with cross-validation and hyperparameter tuning.
+
+---
+
+Use **Random Forest** as the **best model** among the 4 models for churn prediction in this case.
+
 
 ### ⚙️ Config
 ```python
@@ -237,6 +252,9 @@ RandomForestClassifier(
 ```
 
 ### 📈 Performance
+
+![]()
+
 | Metric         | Class 0 (No) | Class 1 (Yes) |
 |----------------|-------------|---------------|
 | Precision      | 0.89        | 0.54          |
@@ -267,11 +285,44 @@ RandomForestClassifier(
 | 6    | `tenure_range`                     | 0.0866     |
 | 7    | `Contract_Two year`                | 0.0802     |
 
+![]()
+
 > 📌 Key Insight:
 > - **Tenure** is the top predictive feature — matches EDA findings.
 > - Features like **payment method** and **monthly charges** significantly impact churn probability.
 
+
+
+## Model 2: Transformer-Based Model (TabTransformer)
+
+###  Architecture Overview
+- Utilizes **self-attention layers** to capture dependencies among categorical features.
+- Categorical features are **embedded** into dense vectors.
+- These embeddings are **processed by Transformer blocks** (multi-head attention + feed-forward layers).
+- Outputs are concatenated with normalized numerical features and passed through an MLP head.
+- Trained using `Binary Cross-Entropy Loss` with the `Adam` optimizer.
+
+### Performance
+| Metric         | Class 0 (No) | Class 1 (Yes) |
+|----------------|-------------|---------------|
+| Precision      | 0.83        | 0.66          |
+| Recall         | 0.91        | 0.50          |
+| F1-Score       | 0.87        | 0.57          |
+
+- **Accuracy**: 0.80  
+- **Macro F1**: 0.72  
+- **Weighted F1**: 0.79  
+- **ROC AUC Score**: 0.8156 ✅
+
+> 🔎 **Observations**:  
+> - **Strong overall accuracy and precision**, especially for class 0 (non-churners).
+> - Shows **significant improvement** in recall for churners ( **0.50**).
+> - ROC AUC of **0.82** indicates good separation capability.
+> - Still underperforms in detecting churners compared to Random Forest.
+
 ---
+
+
 
 ##  Recommendation
 
