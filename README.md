@@ -265,11 +265,11 @@ RandomForestClassifier(
 - **Macro F1**: 0.72  
 - **Weighted F1**: 0.77  
 
-> **Observations**:  
-> - Slightly **lower overall accuracy** than Transformer (0.76 vs 0.80)
-> - **Highest recall for churners (0.72)** among all models — critical for identifying at-risk customers.
-> - More balanced F1 scores for both classes.
-> - Offers interpretability through feature importance.
+ **Observations**:  
+ - Slightly **lower overall accuracy** than Transformer (0.76 vs 0.80)
+ - **Highest recall for churners (0.72)** among all models — critical for identifying at-risk customers.
+ - More balanced F1 scores for both classes.
+ - Offers interpretability through feature importance.
 
 ---
 
@@ -287,9 +287,9 @@ RandomForestClassifier(
 
 ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/8_rf_feature%20importance.png)
 
-> 📌 Key Insight:
-> - **Tenure** is the top predictive feature — matches EDA findings.
-> - Features like **payment method** and **monthly charges** significantly impact churn probability.
+## 📌 Key Insight:
+- **Tenure** is the top predictive feature — matches EDA findings.
+- Features like **payment method** and **monthly charges** significantly impact churn probability.
 
 
 
