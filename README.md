@@ -70,13 +70,14 @@ Telco Churn Prediction/
     * Data is evenly distributed between the two genders; males and females, which might be useful in further analysis.
     * No information added by 'No Internet Service' or 'No Phone Service' and 'No' categories.
     --> **Replacing 'No Internet Service' and 'No Phone Service' entries with 'No'**.
-    ![]()
+    ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/2_categorialfeature_countplot.png)
+    ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/2.png)
 3. Histogram and box plot of continous features implies that:
     * No outliers exists.
     * 'TotalCharges' feature is right skewed.
-    ![]()
+    ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/4_histogram_boxplot.png)
 4. Scatter plot of 'MonthlyCharges' vs. 'TotalCharges' shows a positive correlation between both and also it affects the Churn rate positively.
-    ![]()
+    ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/4_scatterplot.png)
 
 ### Feature encoding 
 Several encoding techniques were tested on each categorical feature separately and One-Hot encoding all the categorical features gave the best results.
