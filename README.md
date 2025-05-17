@@ -295,6 +295,7 @@ RandomForestClassifier(
 
 ## Model 2: Transformer-Based Model (TabTransformer)
 
+
 ###  Architecture Overview
 - Utilizes **self-attention layers** to capture dependencies among categorical features.
 - Categorical features are **embedded** into dense vectors.
@@ -321,10 +322,88 @@ RandomForestClassifier(
 > - Still underperforms in detecting churners compared to Random Forest.
 
 ---
+#### 🔍 TabTransformer Architecture for Telco Churn Prediction
+
+The **TabTransformer** adapts Transformer-based deep learning models for **tabular data**, particularly effective when handling **categorical features**. It combines both categorical and numerical data to make predictions (e.g., customer churn).
+
+---
+
+##### 🧱 Architecture 
+```python
+import torch.nn as nn
+
+class TabTransformer(nn.Module):
+    def __init__(self, input_dim, n_heads=4, dropout=0.1):
+        super().__init__()
+        self.embedding = nn.Linear(input_dim, 64)
+        encoder_layer = nn.TransformerEncoderLayer(d_model=64, nhead=n_heads, dropout=dropout)
+        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=2)
+        self.fc = nn.Sequential(
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(32, 1),
+            nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        x = self.embedding(x).unsqueeze(1) 
+        x = self.transformer(x)
+        return self.fc(x.squeeze(1))
+```
+
+```
+Input:
+    ├── Categorical Features (e.g., Contract, PaymentMethod, etc.)
+    └── Numerical Features (e.g., tenure, MonthlyCharges)
+
+Step 1: Embedding Layer
+    └── Each categorical feature is passed through its own embedding layer.
+        - Categorical inputs (integers) → dense vectors (embeddings)
+        - Output shape: [batch_size, num_categorical_features, embedding_dim]
+
+Step 2: Transformer Encoder
+    └── Stack of Transformer layers that model relationships across categorical features.
+        - Multi-head Self-Attention: captures feature interactions.
+        - LayerNorm and Residual Connections for stability.
+        - Feedforward MLP layers refine representations.
+
+Step 3: Flatten Transformer Output
+    └── The output tensor from the encoder is flattened into a single vector.
+        - Shape: [batch_size, num_categorical_features * embedding_dim]
+
+Step 4: Concatenate with Numerical Features
+    └── Combine the flattened transformer output with raw numerical features.
+        - Shape after concat: [batch_size, total_feature_dim]
+
+Step 5: Fully Connected Layers
+    └── A simple feedforward neural network processes the combined features.
+        - Linear → ReLU → Dropout (optional) → Linear
+
+Step 6: Output Layer
+    └── A single neuron with Sigmoid activation to output churn probability.
+        - Output: [batch_size, 1], values in range [0, 1]
+
+Loss:
+    └── Binary Cross Entropy (BCELoss)
+
+Optimizer:
+    └── Adam (learning rate usually set to 0.001)
+
+Final Prediction:
+    └── If sigmoid output > 0.5 → Predict churn (1)
+        └── else → No churn (0)
+```
+
+---
+
+## Summary
+
+TabTransformer smartly replaces traditional one-hot encoded categorical features with contextual embeddings using attention mechanisms, improving generalization in tabular datasets with complex categorical interactions. It’s powerful for tasks like churn prediction where understanding inter-feature relations matters.
 
 
 
-##  Recommendation
+#  Recommendation
 
 While both models perform well, the **Random Forest** model remains the **preferred choice** for churn prediction:
 
