@@ -80,25 +80,28 @@ Telco Churn Prediction/
 4. Scatter plot of 'MonthlyCharges' vs. 'TotalCharges' shows a positive correlation between both and also it affects the Churn rate positively.
     ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/4_scatterplot.png)
 5. Correlation Analysis
-  ![]()
   - 🔸 **`tenure` vs `TotalCharges`**: Strong correlation (**0.82**) – longer stay → higher total charges.  
   - 🔸 **`MonthlyCharges` vs `TotalCharges`**: Moderate correlation (**0.65**) – higher monthly charges → higher total charges.  
   - 🔸 **`tenure` vs `MonthlyCharges`**: Weak correlation (**0.25**) – duration has little effect on monthly charge.
+  ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/5_1.png)
 
 
 6. 📊 Correlation of Numerical Features with `Churn`
 - 🔹 **`tenure`**: Negative correlation (~**-0.35**) – customers with longer tenure are **less likely to churn**.
 - 🔹 **`MonthlyCharges`**: Positive correlation (~**+0.20**) – higher monthly charges are **slightly associated with higher churn**.
 - 🔹 **`TotalCharges`**: Slight negative correlation (~**-0.15**) – customers who paid more overall are **less likely to churn**.
-  ![]()
+  ![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/5_2.png)
 
 > ℹ️ Interpretation: Long-term, high-total-paying customers are more loyal. Higher monthly bills may contribute to churn.
+
+
 
 ### Feature encoding 
 Several encoding techniques were tested on each categorical feature separately and One-Hot encoding all the categorical features gave the best results.
 
 ### Feature scaling
-log transformation is very powerful in feature scaling specially with skewed data, hence, np.log1p() is applied on 'MonthlyCharges' and 'TotalCharges' features and with trials it proved giving the best results over MinMaxScaler() and StandaredScaler().
+Log transformation is very powerful in feature scaling specially with skewed data, hence, np.log1p() is applied on 'MonthlyCharges' and 'TotalCharges' features and with trials it proved giving the best results over MinMaxScaler() and StandaredScaler().
+![]()
 
 ### Feature engineering
 Binning 'tenure' feature into 6 ranges:
@@ -108,6 +111,8 @@ Binning 'tenure' feature into 6 ranges:
 * 36-48 months --> '3-4 years'
 * 48-60 months --> '4-5 years'
 * More than 60 months --> 'more than 5 years'
+![]()
+
 
 ### Data imbalance
 Data imbalance affects machine learning models by tending only to predict the majority class and ignoring the minority class, hence, having major misclassification of the minority class in comparison with the majority class. Hence, we use techniques to balance class distribution in the data.
@@ -116,6 +121,8 @@ Even that our data here doesn't have severe class imbalance, but handling it sho
 Using SMOTE (Synthetic Minority Oversampling Technique) library in python that randomly increasing the minority class which is 'yes' in our case.
 
 SMOTE synthetically creates new records of the minority class by randomly selecting one or more of the k-nearest neighbors for each example in the minority class. Here, k= 5 neighbors is used. 
+
+![]()
 
 ### Data Split
 20% of the data were splitted for final testing, stratified by the 'Churn' (target) column.
