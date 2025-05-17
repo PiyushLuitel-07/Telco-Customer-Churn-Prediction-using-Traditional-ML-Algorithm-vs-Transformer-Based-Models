@@ -415,7 +415,7 @@ While both models perform well, the **Random Forest** model remains the **prefer
 ### ⚠️ Considerations for Transformer:
 - Better overall accuracy, but still **lags behind in identifying churners** effectively.
 
-> 📝 **Final Verdict**:  
+# **Final Verdict**:  
 > For a churn prediction task, **recall for the positive class (churn)** is most important.  
 > **Random Forest** provides a **better trade-off** between recall, interpretability, and real-world utility.
 
