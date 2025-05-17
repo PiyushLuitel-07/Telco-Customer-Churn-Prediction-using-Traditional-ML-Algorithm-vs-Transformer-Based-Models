@@ -315,11 +315,11 @@ RandomForestClassifier(
 - **Weighted F1**: 0.79  
 - **ROC AUC Score**: 0.8156 ✅
 
-> 🔎 **Observations**:  
-> - **Strong overall accuracy and precision**, especially for class 0 (non-churners).
-> - Shows **significant improvement** in recall for churners ( **0.50**).
-> - ROC AUC of **0.82** indicates good separation capability.
-> - Still underperforms in detecting churners compared to Random Forest.
+ 🔎 **Observations**:  
+ - **Strong overall accuracy and precision**, especially for class 0 (non-churners).
+ - Shows **significant improvement** in recall for churners ( **0.50**).
+ - ROC AUC of **0.82** indicates good separation capability.
+ - Still underperforms in detecting churners compared to Random Forest.
 
 ---
 #### 🔍 TabTransformer Architecture for Telco Churn Prediction
