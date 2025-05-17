@@ -101,7 +101,7 @@ Several encoding techniques were tested on each categorical feature separately a
 
 ### Feature scaling
 Log transformation is very powerful in feature scaling specially with skewed data, hence, np.log1p() is applied on 'MonthlyCharges' and 'TotalCharges' features and with trials it proved giving the best results over MinMaxScaler() and StandaredScaler().
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/6_scaling_logtransformation.png)
 
 ### Feature engineering
 Binning 'tenure' feature into 6 ranges:
@@ -111,7 +111,7 @@ Binning 'tenure' feature into 6 ranges:
 * 36-48 months --> '3-4 years'
 * 48-60 months --> '4-5 years'
 * More than 60 months --> 'more than 5 years'
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/6_tenure%20range.png)
 
 
 ### Data imbalance
@@ -122,7 +122,11 @@ Using SMOTE (Synthetic Minority Oversampling Technique) library in python that r
 
 SMOTE synthetically creates new records of the minority class by randomly selecting one or more of the k-nearest neighbors for each example in the minority class. Here, k= 5 neighbors is used. 
 
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/7_smote.png)
+
+After applying SMOTE
+
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/7_after%20smote.png)
 
 ### Data Split
 20% of the data were splitted for final testing, stratified by the 'Churn' (target) column.
