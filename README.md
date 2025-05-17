@@ -194,7 +194,7 @@ The data set includes information about:
 
 ## Model 1: Random Forest Classifier vs SVM vs Xgboost Classifier vs Logistic Regression
 
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/8_ml%20models%20comparision.png)
 
 ## 📊 Model Performance Summary
 
@@ -239,7 +239,7 @@ Let’s say we ou have 100 churners:
 
 Use **Random Forest** as the **best model** among the 4 models for churn prediction in this case.
 
-
+# Random Forest
 ### ⚙️ Config
 ```python
 RandomForestClassifier(
@@ -253,7 +253,7 @@ RandomForestClassifier(
 
 ### 📈 Performance
 
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/8_rfcm.png)
 
 | Metric         | Class 0 (No) | Class 1 (Yes) |
 |----------------|-------------|---------------|
@@ -285,7 +285,7 @@ RandomForestClassifier(
 | 6    | `tenure_range`                     | 0.0866     |
 | 7    | `Contract_Two year`                | 0.0802     |
 
-![]()
+![](https://github.com/PiyushLuitel-07/Telco-Customer-Churn-Prediction-using-Traditional-ML-Algorithm-vs-Transformer-Based-Models/blob/main/images/8_rf_feature%20importance.png)
 
 > 📌 Key Insight:
 > - **Tenure** is the top predictive feature — matches EDA findings.
