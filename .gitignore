@@ -42,7 +42,7 @@ data/processed/*
 !data/processed/.gitkeep
 
 # Models
-models/*
+# models/*
 !models/.gitkeep
 
 # Logs
